@@ -1,0 +1,144 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+:root{
+  font-size: 16px;
+  --clr-bg-300: hsl(273, 75%, 66%);
+  --clr-bg-500: hsl(240, 73%, 65%);
+  --clr-primary-300: hsl(238, 29%, 16%);
+  --clr-primary-500: hsl(14, 88%, 65%);
+  --clr-neutral-300: hsl(237, 12%, 33%);
+  --clr-neutral-500: hsl(240, 6%, 50%);
+  --clr-divider: hsl(240, 5%, 91%);
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+@media (max-width: 375px){
+  .mobile{
+    height: 5em;
+  }
+  
+  .mobile img{
+    display: block;
+    margin: auto;
+  }
+  
+  .main_image{
+    transform: translate(-5%, -70%);
+  }
+  
+  .background_pattern{
+    transform: translateY(-215%);
+  }
+}
+
+@media (min-width: 376px){
+  .mobile{
+    height: 0em;
+    visibility: hidden;
+  }
+  
+  .mobile img{
+    display: block;
+    margin: auto;
+  }
+  
+  .main_image{
+    transform: translate(-5%, -70%);
+  }
+  
+  .background_pattern{
+    transform: translateY(-215%);
+  }
+}
+
+body{
+  height: 100vh;
+  background: linear-gradient( var(--clr-bg-300), var(--clr-bg-500) );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  margin-top: 10em;
+  background-color: white;
+  width: 90vw;
+  padding: 2em;
+  border-radius: 1.5em;
+}
+
+.main_title{
+  text-align: center;
+  font-weight: 600;
+  margin: 1em;
+}
+
+.QA{
+  border-bottom: solid var(--clr-divider) 1px;
+  padding: 1em 0 1em 0;
+}
+
+.title{
+  position: relative;
+  width: 90%;
+  color: var(--clr-neutral-300);
+}
+
+.title.active{
+  font-weight: 700;
+  color: var(--clr-primary-300);
+}
+
+.title::after{
+  position: absolute;
+  right: -2em;
+  top: 0;
+  content: url(./images/icon-arrow-down.svg);
+  transition: ease 600ms;
+}
+
+.answer{
+  height: 0px;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+  color: var(--clr-neutral-500);
+}
+
+.active + .answer{
+  height: fit-content;
+  opacity: 1;
+}
+
+.active::after{
+  transform: rotate(180deg);
+}

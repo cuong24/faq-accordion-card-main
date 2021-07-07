@@ -82,7 +82,7 @@ html:focus-within {
 }
 
 body{
-  height: 100vh;
+  height: max-content;
   background: linear-gradient( var(--clr-bg-300), var(--clr-bg-500) );
   display: flex;
   flex-direction: column;
